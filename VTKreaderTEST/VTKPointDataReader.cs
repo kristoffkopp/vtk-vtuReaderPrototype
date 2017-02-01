@@ -23,9 +23,9 @@ namespace VTKreaderTEST
 			vtkFieldData fieldData = new vtkFieldData();
 			vtkDoubleArray array = new vtkDoubleArray();
 			array.SetNumberOfComponents(3);
-			var a= array.InsertNextValue(1.1);
-			var aa = array.InsertNextValue(2.2);
-			var aaa = array.InsertNextValue(3.3);
+			var a= array.InsertNextValue(3.1);
+			var aa = array.InsertNextValue(4.2);
+			var aaa = array.InsertNextValue(5.3);
 			array.SetName("ExtremeDisplacement");
 			fieldData.AddArray(array);
 			unstructuredGrid.SetFieldData(fieldData);
