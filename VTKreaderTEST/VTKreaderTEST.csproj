@@ -92,6 +92,7 @@
     <Compile Include="VTKCell.cs" />
     <Compile Include="VTKCellDataReader.cs" />
     <Compile Include="VTKCellReader.cs" />
+    <Compile Include="VTKFieldDataReader.cs" />
     <Compile Include="VTKPointDataReader.cs" />
     <Compile Include="VTKErrorObserver.cs" />
     <Compile Include="VTKPointReader.cs" />

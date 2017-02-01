@@ -1,8 +1,6 @@
 ﻿using Kitware.VTK;
-using System;
 using System.Collections.Generic;
 using System.Runtime.InteropServices;
-using System.Windows.Documents;
 
 namespace VTKreaderTEST
 {

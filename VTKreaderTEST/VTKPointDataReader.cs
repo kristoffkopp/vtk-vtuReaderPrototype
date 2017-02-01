@@ -18,24 +18,6 @@ namespace VTKreaderTEST
 		{
 			return readTuple3NameSpecificPointDataArray(unstructuredGrid, "RotationVector");
 		}
-		public List<double> readExtremeDisplacement(vtkUnstructuredGrid unstructuredGrid)
-		{
-			vtkFieldData fieldData = new vtkFieldData();
-			vtkDoubleArray array = new vtkDoubleArray();
-			array.SetNumberOfComponents(3);
-			var a= array.InsertNextValue(3.1);
-			var aa = array.InsertNextValue(4.2);
-			var aaa = array.InsertNextValue(5.3);
-			array.SetName("ExtremeDisplacement");
-			fieldData.AddArray(array);
-			unstructuredGrid.SetFieldData(fieldData);
-			vtkXMLUnstructuredGridWriter writer = vtkXMLUnstructuredGridWriter.New();
-			writer.SetFileName(@"C:\Users\Kristoffer\Dropbox\Dokumenter\Masteroppgave - Spring 2017\TDD vtk-files\TESTTESTTESTTEST.vtu");
-			writer.SetInput(unstructuredGrid);
-			writer.SetDataModeToAscii();
-			writer.Write();
-			return readTuple3NameSpecificPointDataArray(unstructuredGrid, "ExtremeDisplacement");
-		}
 
 		private List<double> readTuple3NameSpecificPointDataArray(vtkUnstructuredGrid unstructuredGrid, string dataArrayName)
 		{

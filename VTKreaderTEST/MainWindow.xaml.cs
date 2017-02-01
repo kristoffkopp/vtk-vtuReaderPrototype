@@ -16,17 +16,16 @@ namespace VTKreaderTEST
 			try { 
 				RedirectVTKOutput errorObserver = new RedirectVTKOutput();
 
-				VTKreader reader = new VTKreader(@"C:\Users\Kristoffer\Dropbox\Dokumenter\Masteroppgave - Spring 2017\TDD vtk-files\twoTrianglesXYZDisplacements.vtu");
+				VTKreader reader = new VTKreader(@"C:\Users\Kristoffer\Dropbox\Dokumenter\Masteroppgave - Spring 2017\TDD vtk-files\TESTTESTTESTTEST.vtu");
 				var unstructuredGrid = reader.readFile();
 
 				VTKPointReader pointReader = new VTKPointReader();
 				var vectorPoints = pointReader.pointReader(unstructuredGrid);
 
 				VTKPointDataReader pointDataReader = new VTKPointDataReader();
-				var allDispl = pointDataReader.readDisplacements(unstructuredGrid);
+				var xyzDisplacements = pointDataReader.readDisplacements(unstructuredGrid);
 				var translation = pointDataReader.readTranslation(unstructuredGrid);
 				var rotationVector = pointDataReader.readRotationVectors(unstructuredGrid);
-				var extremeDisplacement = pointDataReader.readExtremeDisplacement(unstructuredGrid);
 
 				VTKCellReader cellReader = new VTKCellReader();
 				var vtkCells = cellReader.readCells(unstructuredGrid);
@@ -34,6 +33,9 @@ namespace VTKreaderTEST
 				VTKCellDataReader cellDataReader = new VTKCellDataReader();
 				var allForcesBeams = cellDataReader.readAllForcesBeam(unstructuredGrid);
 				var allFourcesShell = cellDataReader.readAllForcesShell(unstructuredGrid);
+
+				VTKFieldDataReader fieldDataReader = new VTKFieldDataReader();
+				fieldDataReader.readFieldData(unstructuredGrid);
 
 				ElementReader elementReader = new ElementReader();
 				var elements = elementReader.readCellsAndPoints(vtkCells, vectorPoints);
