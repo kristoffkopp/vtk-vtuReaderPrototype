@@ -23,8 +23,8 @@ namespace VTKreaderTEST
 				var vectorPoints = pointReader.pointReader(unstructuredGrid);
 
 				VTKPointDataReader pointDataReader = new VTKPointDataReader();
-				var xyzDisplacements = pointDataReader.readDisplacements(unstructuredGrid);
 				var translation = pointDataReader.readTranslation(unstructuredGrid);
+				var extremeDisplacement = pointDataReader.ExtremeDisplacement;
 				var rotationVector = pointDataReader.readRotationVectors(unstructuredGrid);
 
 				VTKCellReader cellReader = new VTKCellReader();
