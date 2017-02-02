@@ -26,6 +26,12 @@ namespace VTKreaderTEST
 				var translation = pointDataReader.readTranslation(unstructuredGrid);
 				var extremeDisplacement = pointDataReader.ExtremeDisplacement;
 				var rotationVector = pointDataReader.readRotationVectors(unstructuredGrid);
+				var focusTranslation = new double[vectorPoints.Count, 3];
+				var focusRotation = new double[vectorPoints.Count, 3];
+				for (int i = 0; i < vectorPoints.Count; i++)
+				{ //Can be written as Vector3D - since cfemWrapper is using UVector3D to read translation AND rotation
+					focusTranslation[i, 0] = translation[i][0]; focusTranslation[i, 1] = translation[i][1]; focusTranslation[i, 2] = translation[i][2];
+				}
 
 				VTKCellReader cellReader = new VTKCellReader();
 				var vtkCells = cellReader.readCells(unstructuredGrid);

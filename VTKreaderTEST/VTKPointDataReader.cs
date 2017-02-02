@@ -18,7 +18,7 @@ namespace VTKreaderTEST
 		{
 			var dataList = new List<double[]>();
 			var pointData = unstructuredGrid.GetPointData();
-			this.ExtremeDisplacement = new double[] { 0.0, 0.0, 0.0 };
+			ExtremeDisplacement = new double[3];
 			for (int i = 0; i < pointData.GetNumberOfArrays(); i++)
 			{
 				if (pointData.GetArrayName(i) != dataArrayName)
@@ -32,10 +32,8 @@ namespace VTKreaderTEST
 						continue;
 
 					for (int k = 0; k < 3; k++)
-					{
-						if (tuple[k] > this.ExtremeDisplacement[k])
-							this.ExtremeDisplacement[k] = tuple[k];
-					}
+						if (tuple[k] > ExtremeDisplacement[k])
+							ExtremeDisplacement[k] = tuple[k];
 				}
 			}
 			return dataList;
