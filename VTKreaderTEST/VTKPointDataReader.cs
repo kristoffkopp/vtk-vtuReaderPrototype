@@ -5,30 +5,31 @@ namespace VTKreaderTEST
 {
 	public class VTKPointDataReader
 	{
-		public List<double[]> readTranslation(vtkUnstructuredGrid unstructuredGrid)
+		public double[,] readTranslation(vtkUnstructuredGrid unstructuredGrid)
 		{
 			return readTuple3NameSpecificPointDataArray(unstructuredGrid, "Translation", true);
 		}
-		public List<double[]> readRotationVectors(vtkUnstructuredGrid unstructuredGrid)
+		public double[,] readRotationVectors(vtkUnstructuredGrid unstructuredGrid)
 		{
 			return readTuple3NameSpecificPointDataArray(unstructuredGrid, "RotationVector", false);
 		}
 
-		private List<double[]> readTuple3NameSpecificPointDataArray(vtkUnstructuredGrid unstructuredGrid, string dataArrayName, bool readExtremeValues)
+		private double[,] readTuple3NameSpecificPointDataArray(vtkUnstructuredGrid unstructuredGrid, string dataArrayName, bool readExtremeForces)
 		{
-			var dataList = new List<double[]>();
+			double[,] dataArray = new double[,] { }; //Erik, er dette lovelig???
 			var pointData = unstructuredGrid.GetPointData();
 			ExtremeDisplacement = new double[3];
 			for (int i = 0; i < pointData.GetNumberOfArrays(); i++)
 			{
 				if (pointData.GetArrayName(i) != dataArrayName)
-					continue;
+				continue;
 
+				dataArray = new double[pointData.GetArray(i).GetNumberOfTuples(), 3];
 				for (int j = 0; j < pointData.GetArray(i).GetNumberOfTuples(); j++)
 				{
 					var tuple = pointData.GetArray(i).GetTuple3(j);
-					dataList.Add(tuple);
-					if (!readExtremeValues)
+					dataArray[j, 0] = tuple[0]; dataArray[j, 1] = tuple[1]; dataArray[j, 2] = tuple[2];
+					if (!readExtremeForces)
 						continue;
 
 					for (int k = 0; k < 3; k++)
@@ -36,7 +37,7 @@ namespace VTKreaderTEST
 							ExtremeDisplacement[k] = tuple[k];
 				}
 			}
-			return dataList;
+			return dataArray;
 		}
 
 		public double[] ExtremeDisplacement { get; private set; }
