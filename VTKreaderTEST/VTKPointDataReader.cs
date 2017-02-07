@@ -16,7 +16,7 @@ namespace VTKreaderTEST
 
 		private double[,] readTuple3NameSpecificPointDataArray(vtkUnstructuredGrid unstructuredGrid, string dataArrayName, bool readExtremeForces)
 		{
-			double[,] dataArray = new double[,] { }; //Erik, er dette lovelig???
+			double[,] dataArray = new double[,] { };
 			var pointData = unstructuredGrid.GetPointData();
 			ExtremeDisplacement = new double[3];
 			for (int i = 0; i < pointData.GetNumberOfArrays(); i++)

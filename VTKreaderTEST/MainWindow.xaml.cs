@@ -23,7 +23,7 @@ namespace VTKreaderTEST
 				var vectorPoints = pointReader.pointReader(unstructuredGrid);
 
 				VTKPointDataReader pointDataReader = new VTKPointDataReader();
-				//translation and rotationVector can be written as Vector3D - since cfemWrapper is using UVector3D to read translation AND rotation. Is now a double[,]
+				//translation and rotationVector can be written as Vector3D - since cfemWrapper is converting double[,] to Vector3D 
 				var translation = pointDataReader.readTranslation(unstructuredGrid);
 				var rotationVector = pointDataReader.readRotationVectors(unstructuredGrid);
 				var extremeDisplacement = pointDataReader.ExtremeDisplacement;
@@ -34,10 +34,10 @@ namespace VTKreaderTEST
 				VTKCellDataReader cellDataReader = new VTKCellDataReader();
 				var allForcesBeams = cellDataReader.readAllForcesBeam(unstructuredGrid);
 				var allFourcesShell = cellDataReader.readAllForcesShell(unstructuredGrid);
-				var maxForcesBeam = cellDataReader.MaxForcesBeam;
-				var minForcesBeam = cellDataReader.MinForcesBeam;
-				var maxForceShell = cellDataReader.MaxForcesShell;
-				var minForcesShell = cellDataReader.MinForcesShell;
+				var maxForcesBeam = cellDataReader.CalculateMaxForcesBeam;
+				var minForcesBeam = cellDataReader.CalculateMinForcesBeam;
+				var maxForceShell = cellDataReader.CalculateMaxForcesShell;
+				var minForcesShell = cellDataReader.CalculateMinForcesShell;
 
 				VTKFieldDataReader fieldDataReader = new VTKFieldDataReader();
 				fieldDataReader.readFieldData(unstructuredGrid);
