@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace VTKreaderTEST
+namespace WriteReaderTEST
 {
 	public class VTKCell
 	{

@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace VTKreaderTEST.Properties {
+namespace WriteReaderTEST.Properties {
     using System;
     
     

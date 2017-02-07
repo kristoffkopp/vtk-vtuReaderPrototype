@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Windows.Media.Media3D;
 
-namespace VTKreaderTEST
+namespace WriteReaderTEST
 {
 	class VTKPointReader
 	{
