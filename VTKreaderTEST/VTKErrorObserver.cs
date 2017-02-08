@@ -1,7 +1,7 @@
 ﻿using Kitware.VTK;
 using System;
 
-namespace WriteReaderTEST
+namespace VTKreadTEST
 {
 	public class RedirectVTKOutput
 	{

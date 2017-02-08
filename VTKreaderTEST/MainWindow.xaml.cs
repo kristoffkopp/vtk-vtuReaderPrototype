@@ -2,7 +2,7 @@
 using System.Windows;
 using System.Windows.Media.Media3D;
 
-namespace WriteReaderTEST
+namespace VTKreadTEST
 {
 	public partial class MainWindow : Window
 	{

@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace WriteReaderTEST
+namespace VTKreadTEST
 {
 	public enum cellDefinitions
 	{

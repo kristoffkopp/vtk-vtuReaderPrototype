@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Windows.Media.Media3D;
 
-namespace WriteReaderTEST
+namespace VTKreadTEST
 {
 	public class ElementReader
 	{

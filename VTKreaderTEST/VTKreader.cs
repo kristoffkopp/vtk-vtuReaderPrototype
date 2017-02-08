@@ -1,7 +1,7 @@
 ﻿using Kitware.VTK;
 using System.IO;
 
-namespace WriteReaderTEST
+namespace VTKreadTEST
 {
 	public class VTKreader
 	{

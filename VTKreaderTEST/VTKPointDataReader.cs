@@ -1,7 +1,7 @@
 ﻿using Kitware.VTK;
 using System.Collections.Generic;
 
-namespace WriteReaderTEST
+namespace VTKreadTEST
 {
 	public class VTKPointDataReader
 	{
